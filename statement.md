@@ -1,11 +1,33 @@
-# Welcome!
+PS3="Select the operation: "
 
-This Bash template lets you get started quickly with a simple one-page playground.
+select opt in add subtract multiply divide quit; do
 
-```bash runnable
-echo "Hello World!"
-```
-
-# Advanced usage
-
-If you want a more complex example (external libraries, viewers...), see the [official documentation](https://tech.io/playgrounds/408/tech-io-documentation).
+  case $opt in
+    add)
+      read -p "Enter the first number: " n1
+      read -p "Enter the second number: " n2
+      echo "$n1 + $n2 = $(($n1+$n2))"
+      ;;
+    subtract)
+      read -p "Enter the first number: " n1
+      read -p "Enter the second number: " n2
+      echo "$n1 - $n2 = $(($n1-$n2))"
+      ;;
+    multiply)
+      read -p "Enter the first number: " n1
+      read -p "Enter the second number: " n2
+      echo "$n1 * $n2 = $(($n1*$n2))"
+      ;;
+    divide)
+      read -p "Enter the first number: " n1
+      read -p "Enter the second number: " n2
+      echo "$n1 / $n2 = $(($n1/$n2))"
+      ;;
+    quit)
+      break
+      ;;
+    *) 
+      echo "Invalid option $REPLY"
+      ;;
+  esac
+done
